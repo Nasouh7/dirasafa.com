@@ -1,0 +1,78 @@
+/* عرض سعر — NCR-style quotation sheet (A4). Shared by /admin/quote/ (preview + print) */
+.sheet{--red:#B3261E;--ink:#15231B;--rule:#1b2a22;--soft:#6B766F;--tint:#fff;
+  width:210mm;height:297mm;box-sizing:border-box;padding:11mm 13mm 9mm;display:flex;flex-direction:column;background:var(--tint);color:var(--ink);position:relative;overflow:hidden;
+  font-family:'DIN Next LT Arabic','Readex Pro',system-ui,sans-serif;font-size:10.5pt;line-height:1.5;direction:rtl}
+.sheet.copy{--tint:#FBEDED}
+.sheet *{box-sizing:border-box}
+.sheet .perf{position:absolute;top:5mm;inset-inline:13mm;border-top:1px dashed #b9b4a8;height:0}
+.sheet .perf::after{content:attr(data-label);position:absolute;top:-2.2mm;inset-inline-end:0;background:var(--tint);padding:0 3mm;font-size:7.5pt;letter-spacing:.12em;color:var(--soft)}
+.sheet .lattice{position:absolute;inset-inline-start:-30mm;bottom:40mm;width:120mm;opacity:.05;pointer-events:none}
+.sheet .hdr{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:4mm;align-items:start;border-bottom:2px solid var(--rule);padding-bottom:3mm}
+.sheet .hdr .logo img{height:15mm;width:auto}
+.sheet .hdr .co{text-align:center;font-size:8.2pt;line-height:1.55;color:#2b3a32}
+.sheet .hdr .co b{display:block;font-size:12.5pt;font-weight:600;color:var(--ink)}
+.sheet .hdr .co .en{font-size:8pt;letter-spacing:.06em;color:var(--soft)}
+.sheet .title{border:1.5px solid var(--rule);padding:2mm 3mm;text-align:center}
+.sheet .title .t{font-size:14pt;font-weight:700;line-height:1.2}
+.sheet .title .t small{display:block;font-size:8.5pt;font-weight:500;letter-spacing:.2em;color:var(--soft)}
+.sheet .title .no{margin-top:1.5mm;font-size:13pt;font-weight:700;color:var(--red);direction:ltr;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.sheet .title .no small{font-size:7.5pt;color:var(--soft);letter-spacing:.1em;font-weight:500;margin-inline-end:2mm}
+.sheet .meta{display:grid;grid-template-columns:1fr 1fr 1fr;border:1.2px solid var(--rule);border-top:0;margin-top:3mm}
+.sheet .meta>div{padding:1.6mm 3mm;border-inline-start:1.2px solid var(--rule);font-size:9pt}
+.sheet .meta>div:first-child{border-inline-start:0}
+.sheet .meta b{display:block;font-size:7.5pt;color:var(--soft);font-weight:500}
+.sheet .meta span{font-weight:600;direction:ltr;unicode-bidi:isolate;display:inline-block}
+.sheet .meta{border-top:1.2px solid var(--rule)}
+.sheet .to{border:1.2px solid var(--rule);border-top:0;display:grid;grid-template-columns:1.4fr 1fr 1fr;font-size:9.5pt}
+.sheet .to>div{padding:1.6mm 3mm;border-inline-start:1.2px solid var(--rule);min-height:11mm}
+.sheet .to>div:first-child{border-inline-start:0}
+.sheet .to b{display:block;font-size:7.5pt;color:var(--soft);font-weight:500}
+.sheet .to .v{font-weight:600;font-size:10.5pt}
+.sheet .to .ltr{direction:ltr;unicode-bidi:isolate;text-align:right;display:block}
+.sheet table.lines{width:100%;border-collapse:collapse;margin-top:3mm;font-size:9.5pt;table-layout:fixed}
+.sheet table.lines th{background:#EFEAE0;border:1.2px solid var(--rule);padding:1.6mm 2mm;font-weight:600;font-size:8.5pt;line-height:1.3}
+.sheet table.lines th small{display:block;font-weight:400;font-size:7pt;color:var(--soft);letter-spacing:.04em}
+.sheet table.lines td{border:1px solid var(--rule);padding:1.2mm 2mm;height:7.4mm;vertical-align:middle;font-variant-numeric:tabular-nums}
+.sheet table.lines td.n{text-align:center;color:var(--soft);font-size:8.5pt}
+.sheet table.lines td.num{direction:ltr;text-align:right;font-weight:500}
+.sheet table.lines td.amt{direction:ltr;text-align:right;font-weight:600}
+.sheet table.lines td.spec{font-size:8.6pt;color:#2b3a32}
+.sheet table.lines td.c{text-align:center}
+.sheet .after{display:grid;grid-template-columns:1.25fr 1fr;gap:4mm;margin-top:3mm;align-items:start}
+.sheet .totals{border:1.2px solid var(--rule);font-size:9.5pt}
+.sheet .totals div{display:flex;justify-content:space-between;padding:1.5mm 3mm;border-top:1px solid var(--rule)}
+.sheet .totals div:first-child{border-top:0}
+.sheet .totals div span:last-child{direction:ltr;font-variant-numeric:tabular-nums;font-weight:600}
+.sheet .totals div.g{background:#EFEAE0;font-size:11.5pt;font-weight:700}
+.sheet .totals div.g span:last-child{color:var(--red)}
+.sheet .words{border:1.2px solid var(--rule);border-top:0;padding:2mm 3mm;font-size:9pt;line-height:1.6}
+.sheet .words b{font-size:7.5pt;color:var(--soft);font-weight:500;display:block}
+.sheet .terms{border:1.2px solid var(--rule);padding:2mm 3mm;font-size:8.4pt;line-height:1.55}
+.sheet .terms b{display:block;font-size:7.5pt;color:var(--soft);font-weight:500}
+.sheet .terms div+div{margin-top:1.2mm}
+.sheet .terms .en{color:#4b5a51;font-size:7.8pt;direction:ltr;text-align:left;display:block}
+.sheet .foot{margin-top:auto;padding-top:3mm}
+.sheet .sig{display:grid;grid-template-columns:1fr auto;gap:6mm;align-items:end}
+.sheet .sigbox{position:relative;height:32mm;border-top:1px solid var(--rule);padding-top:2mm;font-size:9pt;max-width:92mm}
+.sheet .sigbox .for{color:var(--soft);font-size:8pt}
+.sheet .sigbox .nm{position:absolute;bottom:0;inset-inline-start:0;font-weight:600;line-height:1.4}
+.sheet .sigbox .nm small{display:block;color:var(--soft);font-weight:400;font-size:8pt}
+.sheet .sigbox .stamp{position:absolute;inset-inline-end:4mm;top:-8mm;width:36mm;height:36mm;transform:rotate(-8deg);opacity:.95;mix-blend-mode:multiply}
+.sheet .sigbox .stamp img{width:100%;height:100%}
+.sheet .qrbox{text-align:center;font-size:7.5pt;color:var(--soft);line-height:1.35;width:30mm}
+.sheet .qrbox .qr{width:26mm;height:26mm;margin:0 auto 1.2mm;background:#fff;display:grid;place-items:center}
+.sheet .qrbox .qr svg{width:100%;height:100%}
+.sheet .qrbox b{display:block;color:var(--ink);font-weight:600;font-size:8pt}
+.sheet .fine{margin-top:2mm;border-top:1px solid var(--rule);padding-top:1.5mm;display:flex;justify-content:space-between;gap:6mm;font-size:7.4pt;color:var(--soft);line-height:1.45}
+.sheet .fine .bank{direction:ltr;text-align:left;unicode-bidi:isolate}
+.sheet .wm-draft{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.sheet .wm-draft span{font-size:64pt;font-weight:700;color:rgba(179,38,30,.10);transform:rotate(-22deg);letter-spacing:.2em;border:4px solid rgba(179,38,30,.10);padding:4mm 12mm}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{margin:0;background:#fff}
+  body *{visibility:hidden}
+  .printarea,.printarea *{visibility:visible}
+  .printarea{position:absolute;inset:0}
+  .sheet{page-break-after:always;box-shadow:none;margin:0}
+  .sheet:last-child{page-break-after:auto}
+}

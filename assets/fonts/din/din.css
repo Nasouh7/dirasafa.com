@@ -1,0 +1,7 @@
+/* DIN Next LT Arabic — خط أبشر. هذا الملف فارغ عمداً حتى تُرخَّص العائلة من Monotype.
+   بعد شراء الخط: حوّل الملفات إلى WOFF2، ضعها في هذا المجلد بالأسماء أدناه، ثم أزل علامات التعليق. الموقع يلتقطها تلقائياً. */
+/*
+@font-face{font-family:'DIN Next LT Arabic';font-weight:400;font-display:swap;src:url(/assets/fonts/din/DINNextLTArabic-Regular.woff2) format('woff2')}
+@font-face{font-family:'DIN Next LT Arabic';font-weight:500;font-display:swap;src:url(/assets/fonts/din/DINNextLTArabic-Medium.woff2) format('woff2')}
+@font-face{font-family:'DIN Next LT Arabic';font-weight:600 700;font-display:swap;src:url(/assets/fonts/din/DINNextLTArabic-Bold.woff2) format('woff2')}
+*/
