@@ -546,3 +546,4 @@ html[lang=ur] .hero-art .tag b{font-family:'Noto Nastaliq Urdu',sans-serif;font-
 @media (max-width:640px){.bgrid{grid-template-columns:1fr}.bnav{grid-template-columns:repeat(2,minmax(0,1fr))}.nbstats .wrap{grid-template-columns:1fr 1fr}.nbstats .wrap div:last-child{grid-column:1/-1}.bfacts{grid-template-columns:1fr 1fr 1fr}.bfacts b{font-size:19px}.minis.bl{grid-template-columns:repeat(2,minmax(0,1fr))}.brand-chip{max-width:100%}}
 
 .bnav a{min-width:0}.bnav .bmark{max-width:100%}.phero .wrap>*{min-width:0}
+.bnav a:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;gap:14px;min-height:84px}
