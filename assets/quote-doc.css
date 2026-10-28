@@ -76,3 +76,46 @@
   .sheet{page-break-after:always;box-shadow:none;margin:0}
   .sheet:last-child{page-break-after:auto}
 }
+
+/* ── v7 navy & gold (client identity board) ── */
+.sheet{--ink:#111B33;--rule:#0F1E3D;--soft:#6B7389;--navy:#0F1E3D;--gold:#C9A24C;--tint:#FFFDF8;padding:10mm 12mm 0}
+.sheet.copy{--tint:#FBEDED}
+.sheet .perf{display:none}
+.sheet .swoosh-t{position:absolute;top:0;left:0;width:92mm;height:28mm;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20520%20160%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F3E1A6%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23C9A24C%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238E6A25%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M0%2C0%20L520%2C0%20C420%2C26%20300%2C52%20170%2C92%20C100%2C114%2040%2C136%200%2C160Z%22%20fill%3D%22%230F1E3D%22/%3E%3Cpath%20d%3D%22M520%2C0%20C420%2C26%20300%2C52%20170%2C92%20C100%2C114%2040%2C136%200%2C160%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%225%22/%3E%3Cpath%20d%3D%22M520%2C22%20C420%2C50%20300%2C78%20170%2C118%20C100%2C140%2040%2C164%200%2C190%22%20fill%3D%22none%22%20stroke%3D%22%23C9A24C%22%20stroke-opacity%3D%22.5%22%20stroke-width%3D%221.6%22/%3E%3C/svg%3E") left top/100% 100% no-repeat;pointer-events:none}
+.sheet .lattice{opacity:.045}
+.sheet .hdr{display:grid;grid-template-columns:1.3fr 1fr;gap:6mm;align-items:center;border-bottom:0;padding-bottom:3mm;position:relative;z-index:1}
+.sheet .hdr .brand{display:flex;gap:3.5mm;align-items:center}
+.sheet .hdr .brand img{height:21mm;width:auto}
+.sheet .hdr .brand b{display:block;font-size:15pt;font-weight:700;color:var(--navy);line-height:1.25}
+.sheet .hdr .brand .en{display:block;font-size:8.6pt;color:#3A4664;letter-spacing:.02em}
+.sheet .hdr .brand .ad{display:block;font-size:8pt;color:var(--soft);margin-top:1mm}
+.sheet .hdr .ids{border-inline-start:1.2px solid rgba(201,162,76,.8);padding-inline-start:4mm;font-size:8.1pt;line-height:1.75}
+.sheet .hdr .ids div{display:flex;justify-content:space-between;gap:3mm}
+.sheet .hdr .ids i{font-style:normal;color:var(--soft)}
+.sheet .hdr .ids span{direction:ltr;unicode-bidi:isolate;font-weight:600;color:var(--navy)}
+.sheet .title{display:flex;justify-content:space-between;align-items:center;border:0;border-top:1.4px solid var(--gold);border-bottom:1.4px solid var(--gold);padding:2mm 1mm;margin-top:1mm;text-align:start}
+.sheet .title .t{font-size:17pt;color:var(--navy);line-height:1.15}
+.sheet .title .t small{display:inline-block;margin-inline-start:3mm;font-size:9pt;color:var(--gold-d,#8E6A25);letter-spacing:.18em;font-weight:600}
+.sheet .title .no{margin:0;color:var(--navy);font-size:13pt}
+.sheet .meta,.sheet .to,.sheet .totals,.sheet .words,.sheet .terms{border-color:rgba(15,30,61,.35)}
+.sheet .meta>div,.sheet .to>div{border-color:rgba(15,30,61,.25)}
+.sheet table.lines th{background:var(--navy);color:#fff;border:1px solid var(--navy);font-weight:600}
+.sheet table.lines th small{color:#E9D49A}
+.sheet table.lines td{border:1px solid rgba(15,30,61,.22)}
+.sheet table.lines tbody tr:nth-child(even) td{background:rgba(15,30,61,.035)}
+.sheet .totals div{border-top-color:rgba(15,30,61,.2)}
+.sheet .totals div.g{background:var(--navy);color:#fff}
+.sheet .totals div.g span:last-child{color:#F3E1A6}
+.sheet .foot{padding-top:2mm}
+.sheet .sigbox{border-top-color:rgba(15,30,61,.35)}
+.sheet .fine{border-top-color:rgba(201,162,76,.7)}
+.sheet .band{margin:2.5mm -12mm 0;height:15mm;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20800%2060%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F3E1A6%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23C9A24C%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238E6A25%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M0%2C22%20C220%2C-4%20560%2C40%20800%2C8%20L800%2C60%20L0%2C60Z%22%20fill%3D%22%230F1E3D%22/%3E%3Cpath%20d%3D%22M0%2C22%20C220%2C-4%20560%2C40%20800%2C8%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%223%22/%3E%3C/svg%3E") center/100% 100% no-repeat;display:flex;justify-content:center;align-items:flex-end;gap:7mm;padding:0 12mm 3mm;color:#F3EEE3;font-size:7.8pt}
+.sheet .band span{white-space:nowrap}
+.sheet .swoosh-t{width:64mm;height:17mm}
+.sheet .hdr{padding-top:6mm}
+.sheet table.lines td{height:6.5mm;padding-block:.9mm}
+.sheet .after{margin-top:2.5mm}
+.sheet .sigbox{height:28mm}
+.sheet .fine{margin-top:1.5mm}
+.sheet{padding-bottom:16mm}
+.sheet .band{position:absolute;left:0;right:0;bottom:0;margin:0;height:15mm}

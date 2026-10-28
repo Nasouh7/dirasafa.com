@@ -54,7 +54,7 @@ body{background:#E9E5DA;padding-bottom:0}
 .btn-red{border-color:#B3261E;color:#B3261E}
 .btn[disabled]{opacity:.45;pointer-events:none}
 .stage{overflow:auto;padding:24px;display:flex;flex-direction:column;align-items:center;gap:24px}
-.stage .sheet{box-shadow:0 20px 60px -24px rgba(14,47,35,.45);transform-origin:top center}
+.stage .sheet{box-shadow:0 20px 60px -24px rgba(15,30,61,.45);transform-origin:top center}
 .stage .state{position:sticky;top:0;z-index:5;align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:12px;background:rgba(233,229,218,.92);backdrop-filter:blur(6px);padding:8px 4px;font-size:13px;color:var(--mute)}
 .stage .state b{color:var(--forest)}
 .stage .state .pill{padding:4px 10px;border-radius:999px;font-weight:600;font-size:12px}
@@ -69,7 +69,7 @@ body{background:#E9E5DA;padding-bottom:0}
 .lock .err{color:#B3261E;font-size:13px;margin-top:8px;min-height:18px}
 .lock .file{display:block;margin:10px auto 0;font-size:13px}
 .lock a.small{display:inline-block;margin-top:14px;font-size:12.5px;color:var(--mute);border-bottom:1px solid var(--line);cursor:pointer}
-.modal{position:fixed;inset:0;z-index:90;background:rgba(14,47,35,.55);display:none;place-items:center;padding:20px}
+.modal{position:fixed;inset:0;z-index:90;background:rgba(15,30,61,.55);display:none;place-items:center;padding:20px}
 .modal.show{display:grid}
 .modal .box{width:min(820px,96vw);max-height:90vh;overflow:auto;background:var(--paper);padding:22px 24px;border-top:4px solid var(--gold)}
 .modal h3{font-size:18px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
@@ -188,7 +188,7 @@ html[dir=rtl] .toast{transform:translateX(50%)}
     ['شاي كيني PF1', 'مزاد ممباسا · كيس 68 كغ', 'كيس'], ['شاي كيني BP1', 'مزاد ممباسا · كيس 68 كغ', 'كيس'], ['شاي كيني PD', 'مزاد ممباسا · كيس 68 كغ', 'كيس'],
     ['ليمون تركي', 'كرتونة 10 كغ', 'كرتونة'], ['طماطم تركية', 'كرتونة', 'كرتونة'], ['رمان تركي', 'كرتونة', 'كرتونة'], ['برتقال مصري أبو سرة', 'كرتونة 15 كغ', 'كرتونة'], ['عنب مصري', 'كرتونة 4.5 كغ', 'كرتونة'], ['بطاطس مصرية', 'كيس 25 كغ', 'كيس'], ['بصل مصري', 'كيس 25 كغ', 'كيس'], ['تفاح أوروبي', 'كرتونة 18 كغ', 'كرتونة'], ['كيوي', 'كرتونة 10 كغ', 'كرتونة']];
   const UNITS = ['كرتونة', 'منصة', 'حاوية', 'كيس', 'كغ', 'طن', 'صندوق'];
-  const DEF = { signer: { name: 'سامي الشريف', title: 'المدير العام · General Director' }, prefix: 'DS-26-', counter: 1, days: 7, vatNo: '', bank: { name: '', iban: '', beneficiary: '' }, payment: 'عربون 30٪ عند تأكيد الطلب، والباقي قبل التسليم. التحويل البنكي باسم المؤسسة.', dterms: 'الأسعار شاملة التصريح والتخليص الجمركي. التسليم خلال 2–5 أيام عمل من مخزون جدة، أو حسب جدول الشحن للحاويات.' };
+  const DEF = { signer: { name: 'سامي الشريف', title: 'المدير العام · General Director' }, prefix: 'DS-26-', counter: 1, days: 7, vatNo: '302050738100003', bank: { name: '', iban: '', beneficiary: '' }, payment: 'عربون 30٪ عند تأكيد الطلب، والباقي قبل التسليم. التحويل البنكي باسم المؤسسة.', dterms: 'الأسعار شاملة التصريح والتخليص الجمركي. التسليم خلال 2–5 أيام عمل من مخزون جدة، أو حسب جدول الشحن للحاويات.' };
   let settings = Object.assign({}, DEF, LS.get('settings', {})); settings.signer = Object.assign({}, DEF.signer, settings.signer || {}); settings.bank = Object.assign({}, DEF.bank, settings.bank || {});
   let privKey = null, q = null, idle = null;
   const toast = m => { const t = $('#toast'); t.textContent = m; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2400); };
@@ -224,7 +224,7 @@ html[dir=rtl] .toast{transform:translateX(50%)}
   $('#reset-link').onclick = () => { if (confirm('سيُمسح المفتاح المحفوظ على هذا الجهاز وتحتاج إلى ملف المفتاح لإعادة الإعداد. متابعة؟')) { LS.del('key'); showLock(true); } };
 
   /* ---------- quotation state ---------- */
-  function blank() { return { id: Date.now().toString(36), number: nextNumber(), date: today(), valid: plus(today(), settings.days), ref: '', client: { company: '', name: '', phone: '', city: '', vat: '' }, items: [{ name: '', spec: '', qty: '', unit: 'كرتونة', price: '' }], deliveryMode: 'تسليم مستودع جدة (EXW)', delivery: 0, payment: settings.payment, deliveryTerms: settings.dterms, notes: '', vat: { on: false, rate: 15 }, sig: '', payload: '' }; }
+  function blank() { return { id: Date.now().toString(36), number: nextNumber(), date: today(), valid: plus(today(), settings.days), ref: '', client: { company: '', name: '', phone: '', city: '', vat: '' }, items: [{ name: '', spec: '', qty: '', unit: 'كرتونة', price: '' }], deliveryMode: 'تسليم مستودع جدة (EXW)', delivery: 0, payment: settings.payment, deliveryTerms: settings.dterms, notes: '', vat: { on: true, rate: 15 }, sig: '', payload: '' }; }
   function toForm() {
     $('#number').value = q.number; $('#date').value = q.date; $('#valid').value = q.valid; $('#ref').value = q.ref;
     $('#c-company').value = q.client.company; $('#c-name').value = q.client.name; $('#c-phone').value = q.client.phone; $('#c-city').value = q.client.city; $('#c-vat').value = q.client.vat || '';

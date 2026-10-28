@@ -1,13 +1,13 @@
-/* درع الصفا — v4 · "the shield is a leaf" design system
+/* درع الصفا — v7 · navy & gold, crowned DS shield
    Type: DIN Next LT Arabic (Absher's font — add licensed files to /assets/fonts/din/), falling back to Readex Pro (same Arabic designer, open licence). */
 @font-face{font-family:'Readex Pro';font-weight:160 700;font-display:swap;src:url(/assets/fonts/ReadexPro.woff2) format('woff2')}
 @font-face{font-family:'Noto Nastaliq Urdu';font-weight:400;font-display:swap;src:url(/assets/fonts/NotoNastaliqUrdu.woff2) format('woff2')}
 
 :root{
-  --forest:#0E2F23;--forest-2:#163B2D;--moss:#2F5A3C;--sage:#9DB59B;--sage-2:#CDD9C8;
-  --gold:#C9A24C;--gold-2:#9A7A2E;--gold-3:#E4CF95;
-  --ivory:#EFEAE0;--paper:#F7F4EC;--ink:#15231B;--ink-2:#3C4A41;--mute:#6B766F;
-  --line:rgba(14,47,35,.14);--line-gold:rgba(201,162,76,.5);
+  --forest:#0F1E3D;--forest-2:#16294F;--moss:#2A4374;--sage:#9FB0CC;--sage-2:#D3DBEA;
+  --gold:#C9A24C;--gold-2:#9A7A2E;--gold-3:#E9D49A;--gold-grad:linear-gradient(135deg,#F3E1A6 0%,#D9B666 35%,#C9A24C 60%,#8E6A25 85%,#D6B46A 100%);
+  --ivory:#F3EEE3;--paper:#F8F5EE;--ink:#111B33;--ink-2:#3A4664;--mute:#6B7389;
+  --line:rgba(15,30,61,.14);--line-gold:rgba(201,162,76,.5);
   --body:'DIN Next LT Arabic','Readex Pro',system-ui,sans-serif;--display:var(--body);--latin:var(--body);
   --wrap:1240px;--gut:clamp(20px,4vw,56px);
   --lattice:repeating-linear-gradient(45deg,transparent 0 21px,rgba(201,162,76,.09) 21px 22px),repeating-linear-gradient(-45deg,transparent 0 21px,rgba(201,162,76,.05) 21px 22px);
@@ -86,7 +86,7 @@ html[dir=rtl] .hero-art .wm{inset:-12% auto auto -22%}
 .arch{clip-path:url(#arch);overflow:hidden}
 .hero-art .arch{position:absolute;inset:0 0 0 0;background:var(--forest)}
 .hero-art img.ph{width:100%;height:100%;object-fit:cover}
-.hero-art .tag{position:absolute;inset-inline-start:-18px;bottom:28px;background:var(--paper);border:1px solid var(--line-gold);padding:14px 18px;font-size:13.5px;line-height:1.7;box-shadow:0 20px 40px -24px rgba(14,47,35,.5)}
+.hero-art .tag{position:absolute;inset-inline-start:-18px;bottom:28px;background:var(--paper);border:1px solid var(--line-gold);padding:14px 18px;font-size:13.5px;line-height:1.7;box-shadow:0 20px 40px -24px rgba(15,30,61,.5)}
 .hero-art .tag b{display:block;font-family:var(--display);font-size:18px;color:var(--forest);font-weight:600;line-height:1.3}
 .hero-art .tag i{font-style:normal;color:var(--gold-2)}
 
@@ -207,7 +207,7 @@ html[dir=rtl] .step{padding:28px 0 8px 24px}
 .cold .grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);min-height:600px}
 .cold figure{position:relative;min-height:420px;background:var(--forest-2)}
 .cold figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cold figure figcaption{position:absolute;inset-inline:20px;bottom:18px;color:var(--ivory);font-size:13.5px;background:rgba(14,47,35,.75);padding:8px 12px;max-width:380px}
+.cold figure figcaption{position:absolute;inset-inline:20px;bottom:18px;color:var(--ivory);font-size:13.5px;background:rgba(15,30,61,.75);padding:8px 12px;max-width:380px}
 .cold .text{padding:clamp(56px,7vw,100px) var(--gut)}
 .cfacts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;border-top:1px solid var(--line-gold)}
 .cfacts div{padding:18px 0;border-bottom:1px solid rgba(239,234,224,.12)}
@@ -547,3 +547,32 @@ html[lang=ur] .hero-art .tag b{font-family:'Noto Nastaliq Urdu',sans-serif;font-
 
 .bnav a{min-width:0}.bnav .bmark{max-width:100%}.phero .wrap>*{min-width:0}
 .bnav a:last-child:nth-child(odd){grid-column:1/-1;flex-direction:row;gap:14px;min-height:84px}
+
+
+/* ── v7: navy & gold identity (client board) ── */
+header{border-bottom:0;box-shadow:0 1px 0 rgba(201,162,76,.55)}
+header .logo img{height:48px;width:auto}
+.phero,.on-dark.phero{position:relative;padding-bottom:clamp(96px,10vw,150px)}
+.phero::after{content:"";position:absolute;inset-inline:0;bottom:-1px;height:clamp(48px,6vw,96px);background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2096%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F3E1A6%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23C9A24C%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238E6A25%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M0%2C96%20L0%2C58%20C380%2C104%20940%2C6%201440%2C46%20L1440%2C96Z%22%20fill%3D%22%23F8F5EE%22/%3E%3Cpath%20d%3D%22M0%2C58%20C380%2C104%20940%2C6%201440%2C46%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%223%22/%3E%3Cpath%20d%3D%22M0%2C40%20C420%2C88%20900%2C-10%201440%2C26%22%20fill%3D%22none%22%20stroke%3D%22%23C9A24C%22%20stroke-opacity%3D%22.4%22%20stroke-width%3D%221.2%22/%3E%3C/svg%3E") center/100% 100% no-repeat;pointer-events:none;z-index:1}
+.phero>.wrap{position:relative;z-index:2}
+footer{position:relative;padding-top:clamp(70px,8vw,120px)}
+footer::before{content:"";position:absolute;inset-inline:0;top:-1px;height:clamp(48px,6vw,96px);background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201440%2096%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F3E1A6%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23C9A24C%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238E6A25%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M0%2C0%20L1440%2C0%20L1440%2C40%20C1000%2C96%20460%2C-4%200%2C52Z%22%20fill%3D%22%23F8F5EE%22/%3E%3Cpath%20d%3D%22M1440%2C40%20C1000%2C96%20460%2C-4%200%2C52%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%223%22/%3E%3Cpath%20d%3D%22M1440%2C58%20C1000%2C112%20440%2C12%200%2C70%22%20fill%3D%22none%22%20stroke%3D%22%23C9A24C%22%20stroke-opacity%3D%22.35%22%20stroke-width%3D%221.2%22/%3E%3C/svg%3E") center/100% 100% no-repeat;pointer-events:none}
+footer .top img[alt="مؤسسة درع الصفا للتجارة"]{width:190px;height:auto}
+.hero{position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;width:clamp(240px,34vw,520px);aspect-ratio:520/220;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20520%20220%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F3E1A6%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23C9A24C%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238E6A25%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M0%2C0%20L520%2C0%20C430%2C30%20300%2C70%20170%2C120%20C100%2C148%2040%2C180%200%2C220Z%22%20fill%3D%22%230F1E3D%22/%3E%3Cpath%20d%3D%22M520%2C0%20C430%2C30%20300%2C70%20170%2C120%20C100%2C148%2040%2C180%200%2C220%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%224%22/%3E%3Cpath%20d%3D%22M520%2C26%20C430%2C58%20300%2C100%20170%2C150%20C110%2C174%2050%2C206%200%2C240%22%20fill%3D%22none%22%20stroke%3D%22%23C9A24C%22%20stroke-opacity%3D%22.55%22%20stroke-width%3D%221.4%22/%3E%3Cpath%20d%3D%22M380%2C0%20C300%2C26%20200%2C58%20110%2C96%20C60%2C118%2024%2C140%200%2C158%22%20fill%3D%22none%22%20stroke%3D%22%23C9A24C%22%20stroke-opacity%3D%22.25%22%20stroke-width%3D%221%22/%3E%3C/svg%3E") left top/100% 100% no-repeat;pointer-events:none;z-index:0}
+.hero::after{content:"";position:absolute;bottom:0;right:0;width:clamp(200px,26vw,420px);aspect-ratio:520/220;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20520%20220%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F3E1A6%22/%3E%3Cstop%20offset%3D%22.5%22%20stop-color%3D%22%23C9A24C%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238E6A25%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath%20d%3D%22M520%2C220%20L0%2C220%20C90%2C190%20220%2C150%20350%2C100%20C420%2C72%20480%2C40%20520%2C0Z%22%20fill%3D%22%230F1E3D%22/%3E%3Cpath%20d%3D%22M0%2C220%20C90%2C190%20220%2C150%20350%2C100%20C420%2C72%20480%2C40%20520%2C0%22%20fill%3D%22none%22%20stroke%3D%22url%28%23g%29%22%20stroke-width%3D%224%22/%3E%3Cpath%20d%3D%22M0%2C194%20C90%2C162%20220%2C120%20350%2C70%20C410%2C46%20470%2C14%20520%2C-20%22%20fill%3D%22none%22%20stroke%3D%22%23C9A24C%22%20stroke-opacity%3D%22.5%22%20stroke-width%3D%221.4%22/%3E%3C/svg%3E") right bottom/100% 100% no-repeat;pointer-events:none;z-index:0;opacity:.95}
+.hero>.wrap{position:relative;z-index:1}
+.btn-solid{background:var(--gold-grad);color:var(--forest);border-color:transparent}
+.btn-solid:hover{filter:brightness(1.05)}
+.on-dark .btn-solid{color:#0F1E3D}
+.kicker{color:var(--gold-2)}
+.on-dark .kicker{color:var(--gold)}
+h1 em,h2 em{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal}
+@media (max-width:640px){.hero::before{width:200px;opacity:.9}.hero::after{width:170px}}
+header .wrap{gap:18px}
+header .logo{flex:0 0 auto}
+header .logo img{height:44px;width:auto}
+nav.main a{white-space:nowrap;padding-inline:10px}
+header .btn{white-space:nowrap}
+@media (max-width:1280px){nav.main a{padding-inline:7px;font-size:14.5px}}
+@media (max-width:640px){header .logo img{height:36px}}

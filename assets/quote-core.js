@@ -2,7 +2,7 @@
 window.DQ = (function () {
   const PUBLIC_JWK = {"key_ops":["verify"],"ext":true,"kty":"EC","x":"gCi_sJ_zpg1tqUuy_NQ8yswJcl3LxQrXCETPmG40nQw","y":"Yw8GVHNMh0lQBBisPC1gbd7QnUi8X3YfHTefj7TFNo0","crv":"P-256"};
   const BASE = 'https://dirasafa.com';
-  const CO = { ar: 'مؤسسة درع الصفا للتجارة', en: 'DIRA ALSAFA ESTABLISHMENT FOR TRADING', addr: 'الحلقة، حي الصفا، جدة — المملكة العربية السعودية', cr: '7026646336', phone: '+966 50 210 9719', wa: '966502109719', email: 'info@dirasafa.com', web: 'dirasafa.com', agent: 'وكلاء شركة ناسوس للصادرات الكينية في السعودية' };
+  const CO = { ar: 'مؤسسة درع الصفا للتجارة', en: 'DIRA AL-SAFA ESTABLISHMENT FOR TRADING', addr: 'جدة، حي الصفا، شارع نسيم نوفل، مبنى 5205', cr: '7026646336', vat: '302050738100003', phone: '+966 50 555 7993', phone2: '+966 50 210 9719', wa: '966502109719', email: 'info@dirasafa.com', web: 'dirasafa.com', agent: 'وكلاء شركة ناسوس للصادرات الكينية في السعودية' };
 
   /* ---------- base64url ---------- */
   const enc = new TextEncoder(), dec = new TextDecoder();
@@ -83,7 +83,7 @@ window.DQ = (function () {
   }
 
   /* ---------- document ---------- */
-  const ROWS = 10;
+  const ROWS = 9;
   function renderSheet(q, opts) {
     opts = opts || {};
     const items = q.items.filter(it => it.name || it.qty || it.price);
@@ -101,12 +101,12 @@ window.DQ = (function () {
     const bank = settings.bank && settings.bank.iban ? `${settings.bank.name || ''} · IBAN ${settings.bank.iban}${settings.bank.beneficiary ? ' · ' + settings.bank.beneficiary : ''}` : '';
     return `<div class="sheet${opts.copy ? ' copy' : ''}">
   <div class="perf" data-label="${opts.copy ? 'COPY — نسخة' : 'ORIGINAL — نسخة العميل'}"></div>
-  <img class="lattice" src="/assets/mark-mono-gold.svg" alt="">
+  <div class="swoosh-t"></div><img class="lattice" src="/assets/mark-mono-gold.svg" alt="">
   <div class="hdr">
-    <div class="logo"><img src="/assets/horizontal-colour-transparent.svg" alt="درع الصفا"></div>
-    <div class="co"><b>${CO.ar}</b><span class="en">${CO.en}</span><br>${CO.addr}<br>سجل تجاري ${CO.cr}${settings.vatNo ? ' · الرقم الضريبي ' + esc(settings.vatNo) : ''}<br><span dir="ltr">${CO.phone} · ${CO.email} · ${CO.web}</span></div>
-    <div class="title"><div class="t">عرض سعر<small>QUOTATION</small></div><div class="no"><small>No.</small>${esc(q.number)}</div></div>
+    <div class="brand"><img src="/assets/mark-colour.svg" alt="درع الصفا"><div><b>${CO.ar}</b><span class="en">Dira Al-Safa Establishment for Trading</span><span class="ad">${CO.addr}</span></div></div>
+    <div class="ids"><div><i>رقم السجل التجاري</i><span>${CO.cr}</span></div><div><i>الرقم الضريبي</i><span>${esc(settings.vatNo || CO.vat)}</span></div><div><i>الجوال</i><span>${CO.phone}</span></div><div><i>واتساب</i><span>${CO.phone2}</span></div><div><i>البريد الإلكتروني</i><span>${CO.email}</span></div></div>
   </div>
+  <div class="title"><div class="t">عرض سعر<small>PRICE QUOTATION</small></div><div class="no"><small>No.</small>${esc(q.number)}</div></div>
   <div class="meta">
     <div><b>التاريخ · Date</b><span>${dateAr(q.date)}</span></div>
     <div><b>صالح حتى · Valid until</b><span>${dateAr(q.valid)}</span></div>
@@ -139,12 +139,13 @@ window.DQ = (function () {
   </div>
   <div class="foot">
     <div class="sig">
-      <div class="sigbox"><div class="for">عن مؤسسة درع الصفا للتجارة · For Dira alSafa Est. for Trading</div>
+      <div class="sigbox"><div class="for">عن مؤسسة درع الصفا للتجارة · For Dira Al-Safa Est. for Trading</div>
         <div class="stamp"><img src="/assets/stamp.png" alt="ختم"></div>
         <div class="nm">${esc(signer.name)}<small>${esc(signer.title)}</small></div></div>
       <div class="qrbox"><div class="qr">${qr}</div><b>امسح للتحقق</b>Scan to verify · ${CO.web}/q</div>
     </div>
     <div class="fine"><span>${CO.agent} · عرض السعر هذا ليس فاتورة ضريبية. This quotation is not a tax invoice.</span>${bank ? '<span class="bank">' + esc(bank) + '</span>' : ''}</div>
+    <div class="band"><span>${CO.addr}</span><span dir="ltr">${CO.phone}</span><span dir="ltr">${CO.email}</span><span dir="ltr">${CO.web}</span></div>
   </div>
   ${q.sig ? '' : '<div class="wm-draft"><span>مسودة · DRAFT</span></div>'}
 </div>`;
